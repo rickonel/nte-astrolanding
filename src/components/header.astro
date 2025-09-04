@@ -4,9 +4,9 @@ import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
 
 const navItems: Array<NavItem> = [
-  { title: "Features", url: "#features" },
-  { title: "Compatibility", url: "#compatibility" },
-  { title: "Showcase", url: "#showcase" },
+  { title: "Productos", url: "#features" },
+  { title: "Formas de pago y envío", url: "#compatibility" },
+  { title: "Testimonios", url: "#showcase" },
 ];
 ---
 
@@ -15,9 +15,8 @@ const navItems: Array<NavItem> = [
   class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
-    <h1 class="sr-only">Astro</h1>
-    <Icon name="logomark" class="size-10" />
-    <Icon name="wordmark" class="hidden h-4 sm:block" />
+  <h1 class="sr-only">NTE (Nutre tu esfuerzo)</h1>
+  <span class="text-lg font-bold text-[color:var(--color-primary)] bg-white px-3 py-3 shadow border border-gray-200" style="box-shadow:0 2px 8px 0 rgba(0,0,0,0.06);">NTE</span>
   </a>
   <div>
     <div class="flex items-center gap-6">
@@ -40,7 +39,7 @@ const navItems: Array<NavItem> = [
         class="btn sm:hidden"
         aria-label="Navigation"
       >
-        <Icon name="mdi:menu" class="size-8" />
+  <!-- icon removed -->
       </button>
       <ThemeSwitcher />
     </div>
@@ -54,11 +53,10 @@ const navItems: Array<NavItem> = [
               class="btn"
               aria-label="Close navigation"
             >
-              <Icon name="mdi:close" class="size-8" />
+              <!-- icon removed -->
             </button>
           </header>
           <div class="flex justify-center">
-            <Icon name="logomark" class="size-16" />
           </div>
           <nav>
             <ul class="flex flex-col">

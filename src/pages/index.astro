@@ -12,7 +12,7 @@ import "~/styles/index.css";
 const { generator, site } = Astro;
 const image = new URL("social.jpg", site);
 const description =
-  "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
+  "NTE - Nutre tu esfuerzo. Suplementos deportivos, asesoría personalizada y envíos rápidos. Potencia tu rendimiento con productos de calidad.";
 ---
 
 <!doctype html>
@@ -23,16 +23,16 @@ const description =
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
-    <title>Astro Landing Page</title>
-    <meta name="description" content={description} />
+  <title>NTE | Nutre tu esfuerzo</title>
+  <meta name="description" content={description} />
 
     <!-- social media -->
-    <meta property="og:title" content="Astro" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:url" content={site} />
-    <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:title" content="NTE | Nutre tu esfuerzo" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:url" content={site} />
+  <meta name="twitter:card" content="summary_large_image" />
 
     <!-- initialize theme -->
     <script is:inline>
