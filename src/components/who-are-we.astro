@@ -13,7 +13,7 @@ const features: Array<FeatureItem> = [
   {
     title: "Envíos rápidos",
     description:
-      "Recibe tus productos en tiempo récord en todo el país.",
+      "Recibe tus productos en tiempo récord en toda La Habana.",
     icon: "mdi:truck-fast",
   },
   {
@@ -44,19 +44,18 @@ const features: Array<FeatureItem> = [
 ];
 ---
 
-<ContentSection title="Productos" id="productos">
+<ContentSection title="¿Quiénes somos?" id="who_are_we">
   <Fragment slot="lead">
-  Astro comes <span style="color:var(--color-red);">batteries included</span>. It takes
-    the best parts of
-  <span style="color:var(--color-red);">state-of-the-art</span>
-  tools and adds its own <span style="color:var(--color-red);">innovations</span>.
+    <div class="mx-auto max-w-5xl text-base" style="line-height:1.7;">
+      NTE es tu tienda online de <span style="color:var(--color-red);">suplementos deportivos</span> en Cuba, creada para acompañarte en cada paso de tu vida deportiva. Nos especializamos en ofrecerte una amplia variedad de productos de calidad, desde proteínas y creatinas hasta vitaminas y quemadores de grasa, seleccionados cuidadosamente para que encuentres el suplemento ideal según tus objetivos y necesidades. Nuestro equipo está formado por apasionados del deporte y la nutrición, listos para brindarte <span style="color:var(--color-red);">asesoría personalizada</span> y ayudarte a tomar decisiones informadas sobre tu salud y rendimiento. En NTE, creemos que el esfuerzo merece resultados reales, por eso trabajamos solo con marcas reconocidas y productos certificados. Disfruta de <span style="color:var(--color-red);">envíos rápidos</span> a toda La Habana, atención cercana y la posibilidad de formar parte de una comunidad que comparte tu pasión por el deporte. <span style="color:var(--color-red);">Únete a NTE</span> y potencia tu rendimiento con el respaldo nutricional que mereces.
+    </div>
   </Fragment>
   <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {
       features.map(({ title, description, icon }) => (
         <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
-          <div class="size-16 rounded-full border-2 border-current p-3">
-            <!-- icon removed -->
+          <div class="size-16 rounded-full border-2 border-current p-3 flex items-center justify-center">
+            <Icon name={icon} class="w-8 h-8 text-[var(--color-red)]" />
           </div>
           <p class="text-center font-extrabold text-xl">{title}</p>
           <p class="text-center text-offset text-sm">{description}</p>

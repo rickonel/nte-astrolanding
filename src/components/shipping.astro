@@ -1,0 +1,32 @@
+---
+import ContentList from "~/components/content-list.astro";
+import ContentSection from "~/components/content-section.astro";
+import type { ContentItem } from "~/types";
+
+const pagos: Array<{ title: string }> = [
+  { title: "Efectivo CUP" },
+  { title: "Efectivo USD" },
+  { title: "Efectivo Euro" },
+  { title: "CUP por transferencia" },
+  { title: "MLC por transferencia" },
+  { title: "Pago por Zelle en USD" },
+  { title: "Pago por Bizum en Euro" },
+  { title: "Transferencia bancaria" },
+  { title: "Pago Mixto" },
+];
+---
+
+<ContentSection title="Formas de pago y envío" id="shipping">
+  <Fragment slot="lead">
+    <div class="mx-auto max-w-5xl text-base" style="line-height:1.7;">
+      NTE <span style="color:var(--color-red);">te acompaña</span> en cada etapa. Elige el suplemento ideal y paga como prefieras, con envíos y atención personalizada.
+    </div>
+  </Fragment>
+  <ul class="mx-auto max-w-5xl text-sm mt-8 mb-8 flex flex-row gap-4 justify-center flex-wrap">
+    {pagos.map((pago) => (
+  <li class="border border-default px-4 py-2 bg-offset text-center font-medium whitespace-nowrap">
+        {pago.title}
+      </li>
+    ))}
+  </ul>
+</ContentSection>

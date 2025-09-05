@@ -14,7 +14,8 @@ const { title, id } = Astro.props;
   <div class="flex flex-col items-center gap-4">
     <slot name="eyebrow" />
     <h2
-      class="text-[rgba(197, 8, 8, 1)] text-center font-extrabold tracking-tight text-6xl"
+  class="text-center font-extrabold tracking-tight text-6xl"
+  style="color:var(--color-red);"
     >
       {title}
     </h2>

@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+---
+
+<ContentSection title="Productos" id="products">
+  <Fragment slot="lead">
+   
+  </Fragment>
+  <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+      <span class="font-bold text-xl" style="color:var(--color-red);">Proteína Whey</span>
+      <span class="text-sm" style="color:var(--color-black);">Ideal para recuperación y desarrollo muscular.</span>
+    </li>
+    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+      <span class="font-bold text-xl" style="color:var(--color-red);">Creatina Monohidrato</span>
+      <span class="text-sm" style="color:var(--color-black);">Mejora fuerza y potencia en tus entrenamientos.</span>
+    </li>
+    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+      <span class="font-bold text-xl" style="color:var(--color-red);">Aminoácidos BCAA</span>
+      <span class="text-sm" style="color:var(--color-black);">Favorecen la recuperación y reducen la fatiga.</span>
+    </li>
+    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+      <span class="font-bold text-xl" style="color:var(--color-red);">Pre-entrenos</span>
+      <span class="text-sm" style="color:var(--color-black);">Aumenta energía y concentración antes de entrenar.</span>
+    </li>
+    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+      <span class="font-bold text-xl" style="color:var(--color-red);">Vitaminas y minerales</span>
+      <span class="text-sm" style="color:var(--color-black);">Apoya tu salud y bienestar integral.</span>
+    </li>
+    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+      <span class="font-bold text-xl" style="color:var(--color-red);">Quemador de grasa</span>
+      <span class="text-sm" style="color:var(--color-black);">Apoya la pérdida de peso y definición muscular.</span>
+    </li>
+  </ul>
+  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 mt-8">
+    <a
+      href="#catalogo"
+      class="flex items-center justify-center gap-3 border-2 px-6 py-4 border-[var(--color-red)] text-[var(--color-red)] font-semibold"
+      style="border-radius:0;"
+    >
+      <span>Ver catálogo</span>
+    </a>
+    <a
+      href="#asesoria"
+      class="flex items-center justify-center gap-3 border-2 px-6 py-4 border-[var(--color-red)] text-[var(--color-red)] font-semibold"
+      style="border-radius:0;"
+    >
+      <span>Solicitar asesoría</span>
+    </a>
+  </div>
+</ContentSection>
