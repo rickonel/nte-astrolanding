@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import ContentSection from "~/components/content-section.astro";
+import TestimonialsCard from "~/components/testimonials-card.astro";
+
+const featuredSites = await getCollection(
+  "showcase",
+  ({ data }) => "featured" in data,
+);
+const orderedSites = featuredSites.sort(
+  (a, b) => a.data.featured! - b.data.featured!,
+);
+---
+
+<ContentSection title="Testimonios" id="testimonios" class="">
+  <Fragment slot="lead">
+  <div class="mx-auto max-w-5xl text-lg" style="line-height:1.7;">
+      Historias de <span style="color:var(--color-red);">clientes</span> que confiaron en NTE. <span style="color:var(--color-red);">Inspírate</span> y alcanza tus metas deportivas con nuestros suplementos.
+    </div>
+  </Fragment>
+  <style>
+    #testimonios .section-title {
+      font-size: 1rem;
+    }
+    ::selection {
+      background: var(--color-red);
+      color: white;
+    }
+    ::selection {
+      background: var(--color-red);
+      color: white;
+    }
+  </style>
+  <div class="max-w-6xl space-y-2">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {orderedSites.map((site) => <TestimonialsCard site={site} />)}
+    </div>
+    <p class="text-right text-sm">
+    </p>
+  </div>
+</ContentSection>

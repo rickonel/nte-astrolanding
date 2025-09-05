@@ -18,7 +18,7 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       style="grid-column: 1 / -1;"
     >
       <div
-        class="text-center tracking-tighter text-7m md:text-1xl"
+        class="text-center tracking-tighter text-xs md:text-base"
         style="color: #fbfbfbff;"
       >
         <span id="slogan-text">Suplementos deportivos para potenciar tu rendimiento...</span>
@@ -29,6 +29,11 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       >
         NUTRE TU ESFUERZO
       </div>
+        <div class="w-full flex justify-center pt-8">
+          <a href="https://elyerromenu.com/b/nutre-tu-esfuerzo" target="_blank" rel="noopener">
+              <img src="/src/assets/ntelogo.png" alt="NTE logofork" class="w-36 h-36" />
+          </a>
+        </div>
     </div>
 <script>
   import { slogans } from "../content/slogans";
@@ -80,5 +85,9 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     #splash-bg-fallback {
       @apply block;
     }
+  }
+  ::selection {
+    background: var(--color-red);
+    color: white;
   }
 </style>

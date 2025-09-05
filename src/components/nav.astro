@@ -6,7 +6,11 @@ import type { NavItem } from "~/types";
 const navItems: Array<NavItem> = [
   { title: "Productos", url: "#productos" },
   { title: "Formas de pago y envío", url: "#formas-pago-envio" },
-  { title: "Testimonials", url: "#testimonials" },
+  { title: "¿Quiénes somos?", url: "#who_are_we" },
+  { title: "Testimonios", url: "#testimonials" },
+  { title: "Instagram", url: "https://instagram.com/nte_fitness", icon: "mdi:instagram" },
+  { title: "WhatsApp", url: "https://wa.me/52590878", icon: "mdi:whatsapp" },
+  { title: "Grupo WhatsApp", url: "https://chat.whatsapp.com/CVuXGKhFU4zEf6erJCYEbc", icon: "mdi:account-group" },
 ];
 ---
 
@@ -14,25 +18,34 @@ const navItems: Array<NavItem> = [
   id="page-header"
   class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="#">
-  <h1 class="sr-only">NTE</h1>
-  <span class="text-lg font-bold px-3 py-3 shadow border border-gray-200" style="box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06); color: var(--color-red); background: var(--color-white);">NTE</span>
-  </a>
+  <div class="flex items-center h-full">
+    <a class="flex items-center gap-3 hover:!text-default" href="#">
+      <h1 class="sr-only">NTE</h1>
+      <span class="text-lg font-bold px-3 py-3 shadow border border-gray-200" style="box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06); color: var(--color-red); background: var(--color-white);">NTE</span>
+    </a>
+  </div>
   <div>
     <div class="flex items-center gap-6">
       <nav class="hidden sm:block">
-        <ul class="flex items-center gap-6">
+  <ul class="flex items-center gap-6 mt-6">
           {
-            navItems.map(({ title, url }) => (
+            navItems.map(({ title, url, icon }) => (
               <li>
-                <a class="text-sm" href={url}>
-                  {title}
+                <a
+                  class="text-sm flex items-center gap-2 transition-colors duration-200 nav-link"
+                  href={url}
+                  target={url.startsWith('http') ? '_blank' : undefined}
+                  rel={url.startsWith('http') ? 'noopener' : undefined}
+                >
+                  {icon
+                    ? <Icon name={icon} class="w-5 h-5 icon-nav" />
+                    : title
+                  }
                 </a>
               </li>
             ))
           }
         </ul>
-      </nav>
       <button
         id="open-nav-button"
         type="button"
@@ -71,7 +84,20 @@ const navItems: Array<NavItem> = [
               }
             </ul>
           </nav>
-        </div>
+        <div class="flex flex-col items-center mt-8 gap-2">
+          <a href="https://instagram.com/nte_fitness" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-red)] text-base font-semibold">
+            <!-- enlaces sociales eliminados del menú modal -->
+<footer class="w-full flex flex-col items-center gap-2 py-6 bg-default">
+  <a href="https://instagram.com/nte_fitness" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-red)] text-base font-semibold">
+    <Icon name="mdi:instagram" class="w-6 h-6" /> Instagram
+  </a>
+  <a href="https://wa.me/52590878" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-red)] text-base font-semibold">
+    <Icon name="mdi:whatsapp" class="w-6 h-6" /> WhatsApp
+  </a>
+  <a href="https://chat.whatsapp.com/CVuXGKhFU4zEf6erJCYEbc" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-red)] text-base font-semibold">
+    <Icon name="mdi:account-group" class="w-6 h-6" /> Unirse al grupo
+  </a>
+</footer>
       </div>
     </div>
   </div>
@@ -130,7 +156,39 @@ const navItems: Array<NavItem> = [
     @apply fixed bottom-auto top-0;
     @apply border-default bg-default text-default;
   }
+  .fixed-header .icon-nav {
+    color: var(--color-red) !important;
+  }
+  .fixed-header .nav-link {
+    color: var(--color-red) !important;
+  }
+  .nav-link {
+    color: white;
+    transition: color 0.2s;
+  }
+  .nav-link:hover, .nav-link:focus {
+    color: var(--color-red) !important;
+    background: white;
+  }
+  .nav-link:hover .icon-nav, .nav-link:focus .icon-nav {
+    color: var(--color-red) !important;
+  }
+  .fixed-header .nav-link:hover, .fixed-header .nav-link:focus {
+    color: white !important;
+    background: var(--color-red);
+  }
+  .fixed-header .nav-link:hover .icon-nav, .fixed-header .nav-link:focus .icon-nav {
+    color: white !important;
+  }
+  .icon-nav {
+    color: white;
+    transition: color 0.2s;
+  }
   .modal.is-open {
     @apply block;
+  }
+  ::selection {
+    background: var(--color-red);
+    color: white;
   }
 </style>

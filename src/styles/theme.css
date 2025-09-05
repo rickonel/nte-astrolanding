@@ -1,3 +1,8 @@
+/* Selección de texto global para todo el sitio */
+::selection {
+  background: var(--color-red);
+  color: #fff !important;
+}
 /* Centralización de colores principales */
 [data-theme="light"] {
   --color-red: #D90429;

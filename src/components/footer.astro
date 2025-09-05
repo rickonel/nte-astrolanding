@@ -4,44 +4,43 @@ import type { FooterLink } from "~/types";
 
 const links: Array<FooterLink> = [
   {
-    url: "https://astro.build/",
-    description: "Astro's official website",
-    icon: "mdi:home",
+    url: "https://instagram.com/nte_fitness",
+    description: "Instagram NTE",
+    icon: "mdi:instagram",
   },
   {
-    url: "https://github.com/mhyfritz/astro-landing-page",
-    description: "View source on GitHub",
-    icon: "fa-brands:github-alt",
+    url: "https://wa.me/52590878",
+    description: "WhatsApp NTE",
+    icon: "mdi:whatsapp",
   },
   {
-    url: "https://astro.build/chat",
-    description: "Astro on Discord",
-    icon: "fa-brands:discord",
-  },
-  {
-    url: "https://twitter.com/astrodotbuild",
-    description: "Astro on Twitter",
-    icon: "fa-brands:twitter",
+    url: "https://chat.whatsapp.com/CVuXGKhFU4zEf6erJCYEbc",
+    description: "Grupo WhatsApp NTE",
+    icon: "mdi:account-group",
   },
 ];
 ---
 
 <footer class="relative flex h-64 items-center justify-center">
-  <div class="absolute inset-0 overflow-hidden opacity-40">
-  </div>
-  <ul class="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
+  <div class="absolute inset-0 overflow-hidden opacity-40"></div>
+  <ul class="relative flex justify-center items-center gap-8">
     {
       links.map((link) => (
         <li>
           <a
-            class="flex size-16 items-center justify-center rounded-full border-2 border-current p-4"
+            class="flex items-center justify-center"
             href={link.url}
           >
             <span class="sr-only">{link.description}</span>
-            <!-- icon removed -->
+            <Icon name={link.icon} class="w-16 h-16 text-[var(--color-red)]" />
           </a>
         </li>
       ))
     }
   </ul>
+  </ul>
+  <div class="w-full text-center mt-1 text-[0.1px] text-[var(--color-red)] absolute bottom-2 left-0">
+    © 2025 NTE Fitness. Todos los derechos reservados.<br>
+    Desarrollado por Ricardo Onel Alfonso Ayala, CEO de NTE Fitness.
+  </div>
 </footer>

@@ -2,65 +2,61 @@
 import { Icon } from "astro-icon/components";
 import ContentSection from "~/components/content-section.astro";
 import type { FeatureItem } from "~/types";
-
-const features: Array<FeatureItem> = [
-  {
-    title: "Variedad de suplementos",
-    description:
-      "Proteínas, creatinas, aminoácidos, vitaminas y más para cada objetivo deportivo.",
-    icon: "mdi:bottle-tonic-plus",
-  },
-  {
-    title: "Envíos rápidos",
-    description:
-      "Recibe tus productos en tiempo récord en toda La Habana.",
-    icon: "mdi:truck-fast",
-  },
-  {
-    title: "Asesoría personalizada",
-    description:
-      "Te ayudamos a elegir el suplemento ideal según tus metas y necesidades.",
-    icon: "mdi:account-heart",
-  },
-  {
-    title: "Pago seguro",
-    description:
-      "Aceptamos tarjetas, transferencias y pagos en efectivo de forma segura.",
-    icon: "mdi:credit-card-check",
-  },
-  {
-    title: "Calidad garantizada",
-    description:
-      "Solo trabajamos con marcas reconocidas y productos certificados.",
-    icon: "mdi:shield-check",
-  },
-  {
-    title: "Comunidad NTE",
-    description:
-      "Únete a nuestra comunidad y comparte tu progreso con otros atletas.",
-    icon: "mdi:account-group",
-    icon: "mdi:account-group",
-  },
-];
 ---
-
-<ContentSection title="¿Quiénes somos?" id="who_are_we">
+<ContentSection title="¿Quiénes somos?" id="who_are_we" class="">
   <Fragment slot="lead">
-    <div class="mx-auto max-w-5xl text-base" style="line-height:1.7;">
-      NTE es tu tienda online de <span style="color:var(--color-red);">suplementos deportivos</span> en Cuba, creada para acompañarte en cada paso de tu vida deportiva. Nos especializamos en ofrecerte una amplia variedad de productos de calidad, desde proteínas y creatinas hasta vitaminas y quemadores de grasa, seleccionados cuidadosamente para que encuentres el suplemento ideal según tus objetivos y necesidades. Nuestro equipo está formado por apasionados del deporte y la nutrición, listos para brindarte <span style="color:var(--color-red);">asesoría personalizada</span> y ayudarte a tomar decisiones informadas sobre tu salud y rendimiento. En NTE, creemos que el esfuerzo merece resultados reales, por eso trabajamos solo con marcas reconocidas y productos certificados. Disfruta de <span style="color:var(--color-red);">envíos rápidos</span> a toda La Habana, atención cercana y la posibilidad de formar parte de una comunidad que comparte tu pasión por el deporte. <span style="color:var(--color-red);">Únete a NTE</span> y potencia tu rendimiento con el respaldo nutricional que mereces.
+    <div class="mx-auto max-w-5xl text-lg" style="line-height:1.7;">
+      <p>
+        <span style="color:var(--color-red); font-weight:bold;">NTE</span> es tu tienda online de <span style="color:var(--color-red);">suplementos deportivos</span> en Cuba, creada para acompañarte en cada paso de tu vida deportiva.
+      </p>
+      <ul style="margin:1.5em 0 1em 1em; list-style: disc inside;">
+  <li><strong>CEO:</strong> <a href="https://www.linkedin.com/in/rickonel/" target="_blank" rel="noopener" style="color:var(--color-red);text-decoration:underline;">Ricardo Onel Alfonso Ayala</a></li>
+        <li><strong>Especialista en ventas</strong></li>
+        <li><strong>Equipo de mensajería</strong></li>
+  <li><strong>Equipo de marketing:</strong> <a href="https://www.instagram.com/etherium_media?igsh=dmV0b3N3cWtmczU0" target="_blank" rel="noopener" style="color:var(--color-red);text-decoration:underline;">Etherium Media</a></li>
+      </ul>
+      <p>
+        Nos especializamos en ofrecerte una amplia variedad de productos de calidad:
+      </p>
+      </ul>
+      <p>Seleccionados cuidadosamente para que encuentres el suplemento ideal según tus objetivos y necesidades.</p>
+      <div style="margin-top:2em;">
+        <strong style="color:var(--color-red);">Visión:</strong>
+        <ul style="margin:0.5em 0 1em 1em; list-style: circle inside;">
+          <li>Ser la tienda líder en suplementos deportivos en Cuba.</li>
+          <li>Ofrecer productos de calidad y un servicio excepcional.</li>
+        </ul>
+        <strong style="color:var(--color-red);">Objetivo:</strong>
+        <ul style="margin:0.5em 0 1em 1em; list-style: circle inside;">
+          <li>Acompañarte en cada paso de tu vida deportiva.</li>
+          <li>Brindarte asesoría personalizada.</li>
+          <li>Ayudarte a tomar decisiones informadas sobre tu salud y rendimiento.</li>
+        </ul>
+        <strong style="color:var(--color-red);">Valores:</strong>
+        <ul style="margin:0.5em 0 1em 1em; list-style: circle inside;">
+          <li><strong>Compromiso con la calidad:</strong> Solo marcas reconocidas y productos certificados.</li>
+          <li><strong>Atención personalizada:</strong> Asesoría adaptada a tus necesidades.</li>
+          <li><strong>Comunidad:</strong> Fomentamos una comunidad apasionada por el deporte y la nutrición.</li>
+        </ul>
+      </div>
+      <div style="margin-top:2em;">
+        <span style="color:var(--color-red); font-weight:bold;">Disfruta de envíos rápidos</span> a toda La Habana, atención cercana y la posibilidad de formar parte de una comunidad que comparte tu pasión por el deporte.<br />
+        <span style="color:var(--color-red); font-weight:bold;">Únete a NTE</span> y potencia tu rendimiento con el respaldo nutricional que mereces.
+      </div>
     </div>
   </Fragment>
-  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-    {
-      features.map(({ title, description, icon }) => (
-        <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
-          <div class="size-16 rounded-full border-2 border-current p-3 flex items-center justify-center">
-            <Icon name={icon} class="w-8 h-8 text-[var(--color-red)]" />
-          </div>
-          <p class="text-center font-extrabold text-xl">{title}</p>
-          <p class="text-center text-offset text-sm">{description}</p>
-        </li>
-      ))
+  <style>
+    #who_are_we .section-title {
+      font-size: 1rem;
     }
+    ::selection {
+      background: var(--color-red);
+      color: white;
+    }
+    ::selection {
+      background: var(--color-red);
+      color: white;
+    }
+  </style>
   </ul>
 </ContentSection>
