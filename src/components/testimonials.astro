@@ -19,12 +19,70 @@ const orderedSites = featuredSites.sort(
     </div>
   </Fragment>
   <style>
-    #testimonios .section-title {
-      font-size: 1rem;
+    #testimonials {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
     }
-    ::selection {
+    #testimonials .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+    #testimonials .mx-auto {
+      padding: 2rem 1rem;
+      background: var(--color-white);
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 24px 0 rgba(0,0,0,0.04);
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+    #testimonials ul {
+      margin: 1.5em 0 1em 2em !important;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+    #testimonials ul li {
+      margin-bottom: 1.1em;
+      padding: 1.5em 1.5em;
+      position: relative;
+      font-size: 1.05em;
+      background: var(--color-white);
+      border-radius: 0;
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+    }
+    #testimonials ul li:before {
+      content: '';
+      display: inline-block;
+      width: 0.5em;
+      height: 0.5em;
       background: var(--color-red);
-      color: white;
+      border-radius: 50%;
+      margin-right: 0.7em;
+      vertical-align: middle;
+    }
+    #testimonials .testimonial-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5em;
+      color: var(--color-red);
+    }
+    #testimonials .testimonial-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 0.5em;
+      border-radius: 1em;
+      background: #f8f8f8;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
     }
     ::selection {
       background: var(--color-red);

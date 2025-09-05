@@ -16,17 +16,17 @@ const navItems: Array<NavItem> = [
 
 <header
   id="page-header"
-  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-transparent px-8 py-4 text-white"
+  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-white px-8 py-4 text-white"
 >
   <div class="flex items-center h-full">
     <a class="flex items-center gap-3 hover:!text-default" href="#">
       <h1 class="sr-only">NTE</h1>
-      <span class="text-lg font-bold px-3 py-3 shadow border border-gray-200" style="box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06); color: var(--color-red); background: var(--color-white);">NTE</span>
+      <span class="text-lg font-bold px-3 py-3" style="color: var(--color-red); background: var(--color-white);">NTE</span>
     </a>
   </div>
   <div>
     <div class="flex items-center gap-6">
-      <nav class="hidden sm:block">
+  <nav class="hidden sm:block">
   <ul class="flex items-center gap-6 mt-6">
           {
             navItems.map(({ title, url, icon }) => (
@@ -49,58 +49,49 @@ const navItems: Array<NavItem> = [
       <button
         id="open-nav-button"
         type="button"
-        class="btn sm:hidden"
-        aria-label="Navigation"
+        class="btn block sm:hidden"
+        aria-label="Abrir menú"
+        style="background:white;border:1px solid var(--color-red);color:var(--color-red);padding:0.5em 0.8em;border-radius:0.5em;font-size:1.2em;"
       >
-  <!-- icon removed -->
+        <Icon name="mdi:menu" class="w-7 h-7" />
       </button>
       <ThemeSwitcher />
     </div>
     <div id="menu-modal" class="modal hidden" aria-hidden="true">
-      <div class="fixed inset-0 bg-default px-8 py-4 text-default">
+  <div class="fixed inset-0 bg-default px-4 py-4 text-default" style="z-index:9999;">
         <div class="space-y-4" role="dialog" aria-modal="true">
           <header class="text-right">
             <button
               id="close-nav-button"
               type="button"
               class="btn"
-              aria-label="Close navigation"
+              aria-label="Cerrar navegación"
             >
               <!-- icon removed -->
             </button>
           </header>
-          <div class="flex justify-center">
-          </div>
           <nav>
-            <ul class="flex flex-col">
+            <ul class="flex flex-col items-center gap-2 mt-4">
               {
-                navItems.map(({ title, url }) => (
+                navItems.map(({ title, url, icon }) => (
                   <li>
-                    <a class="block py-4 text-center text-xl" href={url}>
-                      {title}
+                    <a
+                      class="flex items-center gap-2 px-4 py-3 rounded text-base font-semibold text-[var(--color-red)] bg-white w-full justify-center shadow-sm"
+                      href={url}
+                      target={url.startsWith('http') ? '_blank' : undefined}
+                      rel={url.startsWith('http') ? 'noopener' : undefined}
+                      style="min-width:180px;"
+                    >
+                      {icon ? <Icon name={icon} class="w-6 h-6" /> : <span style="width:1.7em;display:inline-block;"></span>}
+                      <span style="font-size:1em;">{title}</span>
                     </a>
                   </li>
                 ))
               }
             </ul>
           </nav>
-        <div class="flex flex-col items-center mt-8 gap-2">
-          <a href="https://instagram.com/nte_fitness" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-red)] text-base font-semibold">
-            <!-- enlaces sociales eliminados del menú modal -->
-<footer class="w-full flex flex-col items-center gap-2 py-6 bg-default">
-  <a href="https://instagram.com/nte_fitness" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-red)] text-base font-semibold">
-    <Icon name="mdi:instagram" class="w-6 h-6" /> Instagram
-  </a>
-  <a href="https://wa.me/52590878" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-red)] text-base font-semibold">
-    <Icon name="mdi:whatsapp" class="w-6 h-6" /> WhatsApp
-  </a>
-  <a href="https://chat.whatsapp.com/CVuXGKhFU4zEf6erJCYEbc" target="_blank" rel="noopener" class="flex items-center gap-2 text-[var(--color-red)] text-base font-semibold">
-    <Icon name="mdi:account-group" class="w-6 h-6" /> Unirse al grupo
-  </a>
-</footer>
+        </div>
       </div>
-    </div>
-  </div>
 </header>
 
 <script>
@@ -152,9 +143,88 @@ const navItems: Array<NavItem> = [
 </noscript>
 
 <style>
+  @media (max-width: 600px) {
+    .section-title, .section-title * {
+      font-size: 1em !important;
+    }
+    .section-content, .section-content * {
+      font-size: 0.92em !important;
+    }
+  }
+  @media (max-width: 600px) {
+    html, body {
+      font-size: 0.92em !important;
+    }
+    #menu-modal a,
+    #menu-modal span,
+    #menu-modal .nav-link,
+    #menu-modal .icon-nav {
+      font-size: 0.92em !important;
+    }
+    #page-header,
+    #page-header * {
+      font-size: 0.92em !important;
+    }
+  }
+  @media (max-width: 600px) {
+    #menu-modal ul {
+      gap: 0.7em !important;
+    }
+    #menu-modal .w-6,
+    #menu-modal .h-6 {
+      width: 1.3rem !important;
+      height: 1.3rem !important;
+    }
+    #menu-modal a {
+      font-size: 1em !important;
+      padding: 0.7em 0.5em !important;
+      gap: 0.7em !important;
+      min-width: 150px !important;
+    }
+    #menu-modal span {
+      font-size: 1em !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .sm\\:block {
+      display: none !important;
+    }
+    #open-nav-button {
+      display: block !important;
+    }
+    #menu-modal .w-6,
+    #menu-modal .h-6 {
+      width: 1.3rem !important;
+      height: 1.3rem !important;
+    }
+    #menu-modal span {
+      font-size: 1em !important;
+    }
+    #menu-modal a {
+      font-size: 1em !important;
+      padding: 0.7em 0.5em !important;
+      gap: 0.5em !important;
+    }
+  }
+  @media (max-width: 600px) {
+    footer .w-6,
+    footer .h-6 {
+      width: 1.1rem !important;
+      height: 1.1rem !important;
+    }
+    footer a {
+      font-size: 0.75rem !important;
+      gap: 0.3rem !important;
+      padding: 0.1rem 0 !important;
+    }
+    footer {
+      padding-bottom: 0.7rem !important;
+    }
+  }
   .fixed-header {
     @apply fixed bottom-auto top-0;
-    @apply border-default bg-default text-default;
+    border-bottom: 1px solid white !important;
+    @apply bg-default text-default;
   }
   .fixed-header .icon-nav {
     color: var(--color-red) !important;

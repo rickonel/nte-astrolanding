@@ -8,38 +8,111 @@ import ContentSection from "~/components/content-section.astro";
    
   </Fragment>
   <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+    <li class="flex flex-col items-center gap-2 border-2 border-[var(--color-red)] bg-[var(--color-white)] p-6">
       <span class="font-bold text-xl" style="color:var(--color-red);">Proteína Whey</span>
       <span class="text-sm" style="color:var(--color-black);">Ideal para recuperación y desarrollo muscular.</span>
     </li>
-    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+    <li class="flex flex-col items-center gap-2 border-2 border-[var(--color-red)] bg-[var(--color-white)] p-6">
       <span class="font-bold text-xl" style="color:var(--color-red);">Creatina Monohidrato</span>
       <span class="text-sm" style="color:var(--color-black);">Mejora fuerza y potencia en tus entrenamientos.</span>
     </li>
-    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+    <li class="flex flex-col items-center gap-2 border-2 border-[var(--color-red)] bg-[var(--color-white)] p-6">
       <span class="font-bold text-xl" style="color:var(--color-red);">Aminoácidos BCAA</span>
       <span class="text-sm" style="color:var(--color-black);">Favorecen la recuperación y reducen la fatiga.</span>
     </li>
-    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+    <li class="flex flex-col items-center gap-2 border-2 border-[var(--color-red)] bg-[var(--color-white)] p-6">
       <span class="font-bold text-xl" style="color:var(--color-red);">Pre-entrenos</span>
       <span class="text-sm" style="color:var(--color-black);">Aumenta energía y concentración antes de entrenar.</span>
     </li>
-    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+    <li class="flex flex-col items-center gap-2 border-2 border-[var(--color-red)] bg-[var(--color-white)] p-6">
       <span class="font-bold text-xl" style="color:var(--color-red);">Vitaminas y minerales</span>
       <span class="text-sm" style="color:var(--color-black);">Apoya tu salud y bienestar integral.</span>
     </li>
-    <li class="flex flex-col items-center gap-2 border border-default bg-[var(--color-white)] p-6">
+    <li class="flex flex-col items-center gap-2 border-2 border-[var(--color-red)] bg-[var(--color-white)] p-6">
       <span class="font-bold text-xl" style="color:var(--color-red);">Quemador de grasa</span>
       <span class="text-sm" style="color:var(--color-black);">Apoya la pérdida de peso y definición muscular.</span>
     </li>
+    <style>
+      #products {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        padding: 2rem 0;
+      }
+      #products .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        letter-spacing: 0.02em;
+      }
+      #products .mx-auto {
+        padding: 2rem 1rem;
+        background: var(--color-white);
+        box-shadow: 0 2px 24px 0 rgba(0,0,0,0.04);
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+      #products ul {
+        margin: 1.5em 0 1em 2em !important;
+        padding-left: 0;
+        list-style: none;
+      }
+      #products ul li {
+        margin-bottom: 1.1em;
+        padding: 1.5em 1.5em;
+        position: relative;
+        font-size: 1.05em;
+        background: var(--color-white);
+        border-radius: 0;
+        box-shadow: 0 2px 12px 0 rgba(0,0,0,0.03);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+    border: 2px solid var(--color-default);
+      }
+      @media (max-width: 600px) {
+        #products ul li {
+          padding-left: 1em;
+          padding-right: 1em;
+        }
+      }
+      #products ul li:before {
+        content: '';
+        display: inline-block;
+        width: 0.5em;
+        height: 0.5em;
+        background: var(--color-red);
+        border-radius: 50%;
+        margin-right: 0.7em;
+        vertical-align: middle;
+      }
+      #products .product-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.5em;
+        color: var(--color-red);
+      }
+      #products .product-img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 0.5em;
+        border-radius: 1em;
+        background: #f8f8f8;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+      }
+      ::selection {
+        background: var(--color-red);
+        color: white;
+      }
+    </style>
   </ul>
   <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 mt-8">
     <a
       href="https://elyerromenu.com/b/nutre-tu-esfuerzo"
       target="_blank"
       rel="noopener"
-      class="flex items-center justify-center gap-3 border-2 px-6 py-4 border-[var(--color-red)] text-[var(--color-red)] font-semibold"
-      style="border-radius:0;"
+      class="flex items-center justify-center gap-3 px-6 py-4 bg-[var(--color-red)] text-[var(--color-white)] font-semibold"
+      style="border-radius:0; border:none;"
     >
       <span>Ver catálogo</span>
     </a>
@@ -47,10 +120,11 @@ import ContentSection from "~/components/content-section.astro";
       href="https://wa.me/5355555555?text=Hola%2C%20tengo%20dudas%20sobre%20sus%20servicios%20y%20suplementos.%20¿Me%20pueden%20asesorar%3F"
       target="_blank"
       rel="noopener"
-      class="flex items-center justify-center gap-3 border-2 px-6 py-4 border-[var(--color-red)] text-[var(--color-red)] font-semibold"
-      style="border-radius:0;"
+      class="flex items-center justify-center gap-3 px-6 py-4 bg-[var(--color-red)] text-[var(--color-white)] font-semibold"
+      style="border-radius:0; border:none;"
     >
       <span>Solicitar asesoría</span>
     </a>
+  </div>
   </div>
 </ContentSection>

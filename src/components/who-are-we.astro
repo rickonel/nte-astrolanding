@@ -15,11 +15,6 @@ import type { FeatureItem } from "~/types";
         <li><strong>Equipo de mensajería</strong></li>
   <li><strong>Equipo de desarrollo tecnológico</strong></li>
   <li><strong>Equipo de marketing:</strong> <a href="https://www.instagram.com/etherium_media?igsh=dmV0b3N3cWtmczU0" target="_blank" rel="noopener" style="color:var(--color-red);text-decoration:underline;">Etherium Media</a></li>
-      </ul>
-      <p>
-        Nos especializamos en ofrecerte una amplia variedad de productos de calidad:
-      </p>
-      </ul>
       <p>Seleccionados cuidadosamente para que encuentres el suplemento ideal según tus objetivos y necesidades.</p>
       <div style="margin-top:2em;">
         <strong style="color:var(--color-red);">Visión:</strong>
@@ -47,12 +42,93 @@ import type { FeatureItem } from "~/types";
     </div>
   </Fragment>
   <style>
-    #who_are_we .section-title {
-      font-size: 1rem;
+    #who_are_we {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
     }
-    ::selection {
+    #who_are_we .section-title {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+    #who_are_we .mx-auto {
+      padding: 2rem 1rem;
+      background: var(--color-white);
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 24px 0 rgba(0,0,0,0.04);
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+    #who_are_we ul {
+      margin: 1.5em 0 1em 2em !important;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+    #who_are_we ul li {
+      margin-bottom: 1.1em;
+      padding: 1.5em 1.5em;
+      position: relative;
+      font-size: 1.05em;
+      background: var(--color-white);
+      border-radius: 0;
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5em;
+    }
+    @media (max-width: 600px) {
+      #who_are_we ul li {
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+    }
+    #who_are_we ul li:before {
+      content: '';
+      display: inline-block;
+      width: 0.5em;
+      height: 0.5em;
       background: var(--color-red);
-      color: white;
+      border-radius: 50%;
+      margin-right: 0.7em;
+      vertical-align: middle;
+    }
+    #who_are_we strong {
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    #who_are_we .mx-auto > p,
+    #who_are_we .mx-auto > div {
+      margin-bottom: 2rem;
+    }
+    #who_are_we .mx-auto > ul {
+      margin-bottom: 2rem;
+    }
+    #who_are_we .mx-auto > ul + p,
+    #who_are_we .mx-auto > ul + div {
+      margin-top: 1.5rem;
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+    #who_are_we .section-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1em;
+      color: var(--color-red);
+    }
+    #who_are_we .section-img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 1em;
+      border-radius: 1em;
+      background: #f8f8f8;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
     }
     ::selection {
       background: var(--color-red);

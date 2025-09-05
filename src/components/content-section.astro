@@ -7,6 +7,25 @@ export interface Props {
 const { title, id } = Astro.props;
 ---
 
+  <style>
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      color: var(--color-red);
+      letter-spacing: -0.02em;
+    }
+    section {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      padding: 1rem 1.5rem;
+      background: var(--color-white);
+      box-shadow: 0 2px 24px 0 rgba(0,0,0,0.04);
+    }
+  </style>
+
 <section
   id={id}
   class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8"
