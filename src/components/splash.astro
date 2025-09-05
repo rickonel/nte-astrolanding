@@ -2,9 +2,7 @@
 import { Image } from "astro:assets";
 import { slogans } from "../content/slogans";
 import astronautImage from "~/assets/astronaut.png";
-import HeroImage from "~/components/hero-image.astro";
 import Powder from "~/components/powder.astro";
-import GitHubCorner from "./github-corner.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -12,9 +10,7 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
 
 <section class="relative h-full bg-black">
   <Powder />
-  <GitHubCorner />
   <div id="powder-bg-fallback" class="absolute inset-0 hidden opacity-40">
-    <HeroImage />
   </div>
   <div class="relative grid h-full place-items-center sm:grid-cols-2">
     <div
@@ -22,8 +18,8 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       style="grid-column: 1 / -1;"
     >
       <div
-        class="text-center tracking-tighter text-6m md:text-1xl"
-        style="color: #ffffffff;"
+        class="text-center tracking-tighter text-7m md:text-1xl"
+        style="color: #fbfbfbff;"
       >
         <span id="slogan-text">Suplementos deportivos para potenciar tu rendimiento...</span>
       </div>
@@ -35,59 +31,8 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       </div>
     </div>
 <script>
-
-  const slogansList = [
-    "Cada gota de sudor cuenta…",
-    "Haz que cada repetición valga…",
-    "Más fuerza, más resistencia…",
-    "Supera tus límites cada día…",
-    "Resultados que se sienten…",
-    "No te detengas hasta lograrlo…",
-    "Dale a tu cuerpo lo que merece…",
-    "Impulsa tu entrenamiento al máximo…",
-    "Transforma tu esfuerzo en victoria…",
-    "Cada meta alcanzada empieza aquí…",
-    "Para los que no se rinden…",
-    "Cada día más fuerte…",
-    "Haz que cada entrenamiento cuente…",
-    "El poder está en tu constancia…",
-    "Tu cuerpo lo agradecerá…",
-    "Entrena duro, recupera mejor…",
-    "De la motivación a la acción…",
-    "Rompe barreras, alcanza metas…",
-    "Cada desafío es una oportunidad…",
-    "Fuerza, energía y resistencia…",
-    "Esfuerzo constante, resultados visibles…",
-    "No solo entrenes, evoluciona…",
-    "Más energía, más rendimiento…",
-    "Construye tu cuerpo, fortalece tu mente…",
-    "Cada repetición cuenta…",
-    "Para atletas que buscan más…",
-    "Convierte tu sudor en resultados…",
-    "Alcanza tu máximo potencial…",
-    "Cada movimiento importa…",
-    "Tu entrenamiento, tu victoria…",
-    "La constancia paga…",
-    "Rinde más, siente mejor…",
-    "Impulsa tu cuerpo, desafía tus límites…",
-    "Cada día es una oportunidad…",
-    "Alimenta tus músculos, fortalece tu rendimiento…",
-    "No pares hasta estar orgulloso…",
-    "Entrena con propósito…",
-    "De la disciplina viene la fuerza…",
-    "Para los que sueñan en grande…",
-    "Tu cuerpo, tu compromiso…",
-    "Siente la diferencia, vive el progreso…",
-    "Cada esfuerzo cuenta…",
-    "Hazlo por ti, hazlo con fuerza…",
-    "Cambia tu rutina, cambia tu vida…",
-    "El trabajo duro se recompensa…",
-    "Rinde más allá de lo esperado…",
-    "Supera cada límite, conquista cada meta…",
-    "Fuerza interior, resultados visibles…",
-    "Cada gota de esfuerzo tiene recompensa…",
-    "Tu esfuerzo merece lo mejor…"
-  ];
+  import { slogans } from "../content/slogans";
+  const slogansList = slogans;
   let sloganIndex = Math.floor(Math.random() * slogansList.length);
   function setSlogan() {
     document.getElementById('slogan-text').textContent = slogansList[sloganIndex];

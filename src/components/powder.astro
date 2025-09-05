@@ -6,7 +6,7 @@
   import invariant from "tiny-invariant";
 
   const COUNT = 10000;
-  const SPEED = 0.01;
+  const SPEED = 0.05;
 
   class Particle {
     x: number;
@@ -14,21 +14,30 @@
     z: number;
     size: number;
     color: string;
+    settled: boolean;
 
     constructor(x = 0, y = 0, z = 0) {
       this.x = x;
       this.y = y;
       this.z = z;
-      this.size = Math.random() * 0.001 + 1;
-      const colors = ["#d8052ce9", "#a90117ff", "#b01b1bff"];
-      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.size = Math.random() * 0.01 + 2;
+      this.color = "rgba(197, 8, 8, 1)"
+      this.settled = false;
     }
 
-    update(width: number, height: number, speed: number) {
-    const dx = 0; 
-    const dy = 1.5; 
-    this.x += dx * speed * 10;
-    this.y += dy * speed * 10;
+    update(width: number, height: number, speed: number, ground: number[]) {
+      if (this.settled) return;
+      const dx = 0;
+      const dy = 1.5;
+      this.x += dx * speed * 10;
+      this.y += dy * speed * 10;
+      // Check if reached ground
+      const groundY = ground[Math.floor(this.x + width / 2)] ?? (height / 2);
+      if (this.y + this.size >= groundY) {
+        this.y = groundY - this.size;
+        this.settled = true;
+        ground[Math.floor(this.x + width / 2)] -= this.size; // Accumulate
+      }
       if (
         this.x > width / 2 ||
         this.x < -width / 2 ||
@@ -38,9 +47,9 @@
         this.x = Math.random() * width - width / 2;
         this.y = Math.random() * height - height / 2;
         this.z = 0;
-        this.size = Math.random() * 0.5 + 1;
-        const colors = ["rgba(175, 61, 61, 1)", "#rgba(177, 62, 62, 1)", "rgba(163, 18, 18, 1)"];
-        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.size = Math.random() * 0.5 + 5;
+        this.color = "rgba(197, 8, 8, 1)"
+        this.settled = false;
       }
     }
 
@@ -55,7 +64,8 @@
     }
   }
 
-  const particles = Array.from({ length: COUNT }, () => new Particle(0, 0, 0));
+  let particles = Array.from({ length: COUNT }, () => new Particle(0, 0, 0));
+  let ground = [];
   let rafId = 0;
 
   const canvas = document.querySelector(
@@ -81,14 +91,16 @@
     canvas.style.height = `${height}px`;
     ctx.scale(dpr, dpr);
 
-    for (const particle of particles) {
-      particle.x = Math.random() * width - width / 2;
-      particle.y = Math.random() * height - height / 2;
-      particle.z = 0;
+    ground = Array(width).fill(height / 2);
+    particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      const x = Math.random() * width - width / 2;
+      const y = -height / 2 - Math.random() * height; // Empieza fuera de pantalla arriba
+      particles.push(new Particle(x, y, 0));
     }
 
     ctx.translate(width / 2, height / 2);
-    ctx.fillStyle = "rgba(197, 8, 8, 1)";
+    ctx.fillStyle = "rgba(191, 3, 3, 1)";
     rafId = requestAnimationFrame(frame);
   }
 
@@ -98,10 +110,51 @@
 
     ctx.clearRect(-width / 2, -height / 2, width, height);
     ctx.fillRect(-width / 2, -height / 2, width, height);
-    for (const particle of particles) {
-      particle.update(width, height, SPEED);
-      particle.draw(ctx);
+    // Draw ground
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(-width / 2, ground[0]);
+    for (let i = 1; i < ground.length; i++) {
+      ctx.lineTo(i - width / 2, ground[i]);
     }
-    rafId = requestAnimationFrame(frame);
+    ctx.lineTo(width / 2, height / 2);
+    ctx.lineTo(-width / 2, height / 2);
+    ctx.closePath();
+    ctx.fillStyle = "rgba(197, 8, 8, 1)";
+    ctx.globalAlpha = 0.8;
+    ctx.fill();
+    ctx.restore();
+    // Draw particles
+    let filled = true;
+    for (let i = 0; i < ground.length; i++) {
+      if (ground[i] > -height / 2 + 2) {
+        filled = false;
+        break;
+      }
+    }
+    if (!filled) {
+      // Si hay menos partículas en pantalla, seguir generando más desde arriba
+      const activeParticles = particles.filter(p => !p.settled);
+      if (activeParticles.length < COUNT) {
+        for (let i = activeParticles.length; i < COUNT; i++) {
+          const x = Math.random() * width - width / 2;
+          const y = -height / 2 - Math.random() * height;
+          particles.push(new Particle(x, y, 0));
+        }
+      }
+      for (const particle of particles) {
+        particle.update(width, height, SPEED, ground);
+        particle.draw(ctx);
+      }
+      rafId = requestAnimationFrame(frame);
+    } else {
+      // Pantalla llena, detener animación
+      for (const particle of particles) {
+        if (!particle.settled) {
+          particle.settled = true;
+        }
+        particle.draw(ctx);
+      }
+    }
   }
 </script>

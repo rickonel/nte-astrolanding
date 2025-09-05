@@ -1,19 +1,20 @@
+/* Centralización de colores principales */
 [data-theme="light"] {
-  --color-primary: #D90429;
-  --color-secondary: theme("colors.indigo.500");
-  --color-text: theme("colors.gray.900");
-  --color-text-offset: theme("colors.gray.600");
-  --color-background: theme("colors.gray.50");
-  --color-background-offset: theme("colors.gray.100");
-  --color-border: theme("colors.gray.900" / 10%);
+  --color-red: #D90429;
+  --color-white: #fff;
+  --color-black: #111;
+  --color-gray: #e5e5e5;
+  --color-border: #e5e5e5;
+  --color-text: #222;
+  --color-background: #fff;
 }
 
 [data-theme="dark"] {
-  --color-primary: #D90429;
-  --color-secondary: theme("colors.indigo.400");
-  --color-text: theme("colors.gray.50");
-  --color-text-offset: theme("colors.gray.400");
-  --color-background: theme("colors.gray.900");
-  --color-background-offset: theme("colors.gray.800");
-  --color-border: theme("colors.gray.50" / 10%);
+  --color-red: #D90429;
+  --color-white: #fff;
+  --color-black: #111;
+  --color-gray: #222;
+  --color-border: #222;
+  --color-text: #fff;
+  --color-background: #111;
 }
