@@ -5,8 +5,8 @@
 <script>
   import invariant from "tiny-invariant";
 
-  const COUNT = 10000;
-  const SPEED = 0.05;
+  const COUNT = 4000;
+  const SPEED = 0.01;
 
   class Particle {
     x: number;
@@ -20,7 +20,7 @@
       this.x = x;
       this.y = y;
       this.z = z;
-      this.size = Math.random() * 0.01 + 2;
+      this.size = Math.random() * 0.01 + 10;
       this.color = "rgba(197, 8, 8, 1)"
       this.settled = false;
     }
@@ -47,7 +47,7 @@
         this.x = Math.random() * width - width / 2;
         this.y = Math.random() * height - height / 2;
         this.z = 0;
-        this.size = Math.random() * 0.5 + 5;
+        this.size = Math.random() * 0.5 + 10;
         this.color = "rgba(197, 8, 8, 1)"
         this.settled = false;
       }
@@ -100,7 +100,7 @@
     }
 
     ctx.translate(width / 2, height / 2);
-    ctx.fillStyle = "rgba(191, 3, 3, 1)";
+    ctx.fillStyle = "rgba(172, 167, 167, 1)";
     rafId = requestAnimationFrame(frame);
   }
 
@@ -120,7 +120,7 @@
     ctx.lineTo(width / 2, height / 2);
     ctx.lineTo(-width / 2, height / 2);
     ctx.closePath();
-    ctx.fillStyle = "rgba(197, 8, 8, 1)";
+    ctx.fillStyle = "rgba(201, 198, 198, 1)";
     ctx.globalAlpha = 0.8;
     ctx.fill();
     ctx.restore();
