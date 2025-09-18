@@ -4,9 +4,9 @@ import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
 
 const navItems: Array<NavItem> = [
-  { title: "Productos", url: "#products" },
-  { title: "Formas de pago y envío", url: "#shipping" },
-  { title: "¿Quiénes somos?", url: "#who_are_we" },
+  { title: "Productos", url: "#products", icon: "mdi:package-variant" },
+  { title: "Formas de pago y envío", url: "#shipping", icon: "mdi:truck-delivery" },
+  { title: "¿Quiénes somos?", url: "#who_are_we", icon: "mdi:help-circle" },
   // { title: "Testimonios", url: "#testimonials" },
   { title: "Instagram", url: "https://instagram.com/nte_fitness", icon: "mdi:instagram" },
   { title: "WhatsApp", url: "https://wa.me/52590878", icon: "mdi:whatsapp" },
@@ -16,133 +16,75 @@ const navItems: Array<NavItem> = [
 
 <header
   id="page-header"
-  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-white px-8 py-4 text-white"
+  class="absolute bottom-0 z-20 flex w-full items-center justify-between border-b border-white px-4 sm:px-8 py-2 sm:py-4 text-white"
 >
   <div class="flex items-center h-full">
     <a class="flex items-center gap-3 hover:!text-default" href="#">
       <h1 class="sr-only">NTE</h1>
-      <span class="text-lg font-bold px-3 py-3" style="color: var(--color-red); background: var(--color-white);">NTE</span>
+      <span class="text-lg sm:text-lg font-bold px-3 sm:px-3 py-3 sm:py-3" style="color: var(--color-red); background: var(--color-white);">NTE</span>
     </a>
   </div>
   <div>
-    <div class="flex items-center gap-6">
-  <nav class="hidden sm:block">
-  <ul class="flex items-center gap-6 mt-6">
+    <div class="flex items-center gap-2 sm:gap-6">
+  <nav class="block">
+  <ul class="flex items-center gap-2 sm:gap-6 mt-3 sm:mt-6">
           {
             navItems.map(({ title, url, icon }) => (
               <li>
                 <a
-                  class="text-sm flex items-center gap-2 transition-colors duration-200 nav-link"
+                  class="text-xs sm:text-sm flex items-center gap-1 sm:gap-2 transition-colors duration-200 nav-link px-1 sm:px-0"
                   href={url}
                   target={url.startsWith('http') ? '_blank' : undefined}
                   rel={url.startsWith('http') ? 'noopener' : undefined}
+                  title={title}
                 >
-                  {icon
-                    ? <Icon name={icon} class="w-5 h-5 icon-nav" />
-                    : title
-                  }
+                  {icon ? (
+                    <>
+                      <Icon name={icon} class="w-5 h-5 sm:w-5 sm:h-5 icon-nav" />
+                      <span class="hidden sm:inline text-xs sm:text-sm">{title}</span>
+                    </>
+                  ) : (
+                    <span class="hidden sm:inline text-xs sm:text-sm">{title}</span>
+                  )}
                 </a>
               </li>
             ))
           }
         </ul>
-      <button
-        id="open-nav-button"
-        type="button"
-        class="btn block sm:hidden"
-        aria-label="Abrir menú"
-        style="background:white;border:1px solid var(--color-red);color:var(--color-red);padding:0.5em 0.8em;border-radius:0.5em;font-size:1.2em;"
-      >
-        <Icon name="mdi:menu" class="w-7 h-7" />
-      </button>
-      <ThemeSwitcher />
-    </div>
-    <div id="menu-modal" class="modal hidden" aria-hidden="true">
-  <div class="fixed inset-0 bg-default px-4 py-4 text-default" style="z-index:9999;">
-        <div class="space-y-4" role="dialog" aria-modal="true">
-          <header class="text-right">
-            <button
-              id="close-nav-button"
-              type="button"
-              class="btn"
-              aria-label="Cerrar navegación"
-            >
-              <!-- icon removed -->
-            </button>
-          </header>
-          <nav>
-            <ul class="flex flex-col items-center gap-2 mt-4">
-              {
-                navItems.map(({ title, url, icon }) => (
-                  <li>
-                    <a
-                      class="flex items-center gap-2 px-4 py-3 rounded text-base font-semibold text-[var(--color-red)] bg-white w-full justify-center shadow-sm"
-                      href={url}
-                      target={url.startsWith('http') ? '_blank' : undefined}
-                      rel={url.startsWith('http') ? 'noopener' : undefined}
-                      style="min-width:180px;"
-                    >
-                      {icon ? <Icon name={icon} class="w-6 h-6" /> : <span style="width:1.7em;display:inline-block;"></span>}
-                      <span style="font-size:1em;">{title}</span>
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
-        </div>
+      <div class="ml-2 sm:ml-0">
+        <ThemeSwitcher />
       </div>
+    </div>
 </header>
 
 <script>
-  import MicroModal from "micromodal";
   import invariant from "tiny-invariant";
-
-  const menuModalId = "menu-modal";
 
   const header = document.querySelector("#page-header") as HTMLElement;
   const page = document.documentElement;
-  const menu = document.querySelector(`#${menuModalId} ul`);
-  const openNavButton = document.querySelector("#open-nav-button");
-  const closeNavButton = document.querySelector("#close-nav-button");
 
   invariant(header, "header should not be null");
-  invariant(menu, "menu should not be null");
-  invariant(openNavButton, "openNavButton should not be null");
-  invariant(closeNavButton, "closeNavButton should not be null");
-
-  const openMenu = () => {
-    MicroModal.show(menuModalId, { disableScroll: true });
-  };
-
-  const closeMenu = () => {
-    MicroModal.close(menuModalId);
-  };
-
-  openNavButton.addEventListener("click", openMenu);
-  closeNavButton.addEventListener("click", closeMenu);
 
   document.addEventListener("scroll", () => {
     const d = page.clientHeight - page.scrollTop - header.offsetHeight;
     header.classList.toggle("fixed-header", d < 0);
   });
-
-  menu.addEventListener("click", (event) => {
-    if ((event.target as HTMLElement).tagName === "A") {
-      closeMenu();
-    }
-  });
 </script>
 
-<noscript>
-  <style>
-    #open-nav-button {
-      display: none;
-    }
-  </style>
-</noscript>
-
 <style>
+  @media (max-width: 400px) {
+    #page-header {
+      padding: 0.25rem 0.5rem !important;
+    }
+    .nav-link {
+      padding: 0.3rem !important;
+      gap: 0.25rem !important;
+    }
+    .icon-nav {
+      width: 1.4rem !important;
+      height: 1.4rem !important;
+    }
+  }
   @media (max-width: 600px) {
     .section-title, .section-title * {
       font-size: 1em !important;
@@ -155,55 +97,20 @@ const navItems: Array<NavItem> = [
     html, body {
       font-size: 0.92em !important;
     }
-    #menu-modal a,
-    #menu-modal span,
-    #menu-modal .nav-link,
-    #menu-modal .icon-nav {
-      font-size: 0.92em !important;
-    }
     #page-header,
     #page-header * {
       font-size: 0.92em !important;
     }
-  }
-  @media (max-width: 600px) {
-    #menu-modal ul {
-      gap: 0.7em !important;
+    #page-header {
+      padding: 0.5rem 1rem !important;
     }
-    #menu-modal .w-6,
-    #menu-modal .h-6 {
+    .nav-link {
+      padding: 0.3rem !important;
+      font-size: 0.75rem !important;
+    }
+    .icon-nav {
       width: 1.3rem !important;
       height: 1.3rem !important;
-    }
-    #menu-modal a {
-      font-size: 1em !important;
-      padding: 0.7em 0.5em !important;
-      gap: 0.7em !important;
-      min-width: 150px !important;
-    }
-    #menu-modal span {
-      font-size: 1em !important;
-    }
-  }
-  @media (max-width: 600px) {
-    .sm\\:block {
-      display: none !important;
-    }
-    #open-nav-button {
-      display: block !important;
-    }
-    #menu-modal .w-6,
-    #menu-modal .h-6 {
-      width: 1.3rem !important;
-      height: 1.3rem !important;
-    }
-    #menu-modal span {
-      font-size: 1em !important;
-    }
-    #menu-modal a {
-      font-size: 1em !important;
-      padding: 0.7em 0.5em !important;
-      gap: 0.5em !important;
     }
   }
   @media (max-width: 600px) {
@@ -253,9 +160,6 @@ const navItems: Array<NavItem> = [
   .icon-nav {
     color: white;
     transition: color 0.2s;
-  }
-  .modal.is-open {
-    @apply block;
   }
   ::selection {
     background: var(--color-red);
