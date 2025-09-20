@@ -20,8 +20,8 @@ const navItems: Array<NavItem> = [
 >
   <div class="flex items-center h-full">
     <a class="flex items-center gap-3 hover:!text-default" href="#">
-      <h1 class="sr-only">NTE</h1>
-      <span class="text-lg sm:text-lg font-bold px-3 sm:px-3 py-3 sm:py-3" style="color: var(--color-red); background: var(--color-white);">NTE</span>
+      <h1 class="sr-only text-8xl sm:text-lg">NTE</h1>
+      <span class="text-8xl sm:text-lg font-bold px-4 sm:px-3 py-4 sm:py-3" style="color: var(--color-red); background: var(--color-white); aspect-ratio: 1 / 1; display: inline-flex; align-items: center; justify-content: center;">NTE</span>
     </a>
   </div>
   <div>
@@ -40,7 +40,7 @@ const navItems: Array<NavItem> = [
                 >
                   {icon ? (
                     <>
-                      <Icon name={icon} class="w-5 h-5 sm:w-5 sm:h-5 icon-nav" />
+                      <Icon name={icon} class="w-7 h-7 sm:w-5 sm:h-5 icon-nav" />
                       <span class="hidden sm:inline text-xs sm:text-sm">{title}</span>
                     </>
                   ) : (
@@ -81,8 +81,8 @@ const navItems: Array<NavItem> = [
       gap: 0.25rem !important;
     }
     .icon-nav {
-      width: 1.4rem !important;
-      height: 1.4rem !important;
+      width: 1.8rem !important;
+      height: 1.8rem !important;
     }
   }
   @media (max-width: 600px) {
@@ -109,8 +109,8 @@ const navItems: Array<NavItem> = [
       font-size: 0.75rem !important;
     }
     .icon-nav {
-      width: 1.3rem !important;
-      height: 1.3rem !important;
+      width: 1.7rem !important;
+      height: 1.7rem !important;
     }
   }
   @media (max-width: 600px) {
